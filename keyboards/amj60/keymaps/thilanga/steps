@@ -1,0 +1,6 @@
+$ make clean
+$ make KEYMAP=thilanga
+$ sudo dfu-programmer atmega32u4 erase --debug 5
+$ sudo dfu-programmer atmega32u4 flash amj60_thilanga.hex --debug 5
+$ sudo dfu-programmer atmega32u4 flash-eep xxx.eep --debug 5(not necessary)
+$ sudo dfu-programmer atmega32u4 start --debug 5

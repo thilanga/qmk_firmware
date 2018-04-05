@@ -4,7 +4,8 @@
 enum preonic_layers {
   _COLEMAK,
   _LOWER,
-  _RAISE
+  _RAISE,
+  _ADJUST
 };
 
 enum preonic_keycodes {
@@ -77,6 +78,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS},
   {_______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY}
+},
+
+/* Adjust (Lower + Raise)
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_ADJUST] = {
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 }
 
 
@@ -93,20 +115,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case LOWER:
           if (record->event.pressed) {
             layer_on(_LOWER);
-            update_tri_layer(_LOWER, _RAISE);
+            update_tri_layer(_LOWER, _RAISE, _ADJUST);
           } else {
             layer_off(_LOWER);
-            update_tri_layer(_LOWER, _RAISE);
+            update_tri_layer(_LOWER, _RAISE, _ADJUST);
           }
           return false;
           break;
         case RAISE:
           if (record->event.pressed) {
             layer_on(_RAISE);
-            update_tri_layer(_LOWER, _RAISE);
+            update_tri_layer(_LOWER, _RAISE, _ADJUST);
           } else {
             layer_off(_RAISE);
-            update_tri_layer(_LOWER, _RAISE);
+            update_tri_layer(_LOWER, _RAISE, _ADJUST);
           }
           return false;
           break;

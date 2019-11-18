@@ -16,7 +16,6 @@
 
 #include QMK_KEYBOARD_H
 #include "muse.h"
-#include "planck.h"
 
 
 extern keymap_config_t keymap_config;

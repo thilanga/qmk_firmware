@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    
   /* Keymap 1: F-and-vim Layer, modified with Space (by holding space)
    * ,-----------------------------------------------------------.
-   * |Play| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|   |  |
+   * |Play| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12| |PrSc|
    * |-----------------------------------------------------------|
    * |Caps|  |Prev|Next|   |   |   |   |   |   |   |   |   | Del |
    * |-----------------------------------------------------------|
@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
    
   [_SPC] = KEYMAP_THILANGA(
-    KC_MPLY, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, _______, _______, \
+    KC_MPLY, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, _______, KC_PSCR, \
     KC_CAPS, _______, KC_MPRV, KC_MNXT, _______, _______, _______, KC_PGUP,_______, KC_PGDOWN, _______, _______, _______, KC_DEL, \
     _______, _______, KC_VOLD, KC_VOLU, KC__MUTE, KC_HOME, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_END, _______, KC_ENT, \
     _______, _______, _______, _______, KC_SPACE, M(0), _______, _______, KC_MS_BTN1, KC_MS_BTN2, _______, _______, \

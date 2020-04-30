@@ -46,7 +46,7 @@ class KLE2xy(list):
         if 'name' in properties:
             self.name = properties['name']
 
-    def parse_layout(self, layout):
+    def parse_layout(self, layout):  # noqa  FIXME(skullydazed): flake8 says this has a complexity of 25, it should be refactored.
         # Wrap this in a dictionary so hjson will parse KLE raw data
         layout = '{"layout": [' + layout + ']}'
         layout = hjson.loads(layout)['layout']
@@ -110,8 +110,8 @@ class KLE2xy(list):
 
                 else:
                     current_key['name'] = key
-                    current_key['row'] = current_row
-                    current_key['column'] = current_col
+                    current_key['row'] = round(current_row, 2)
+                    current_key['column'] = round(current_col, 2)
 
                     # Determine the X center
                     x_center = (current_key['width'] * self.key_width) / 2
